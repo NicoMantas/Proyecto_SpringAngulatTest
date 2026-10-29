@@ -1,0 +1,36 @@
+<main style="padding: 2rem; font-family: sans-serif; max-width: 600px; margin: 0 auto;">
+  <!-- 1. Agregamos el ID al título -->
+  <h1 id="app-title">Changemakers Tasks</h1>
+
+  <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+    <!-- 2. Agregamos el ID al input -->
+    <input 
+      id="task-input"
+      type="text" 
+      [value]="newTaskTitle()" 
+      (input)="newTaskTitle.set($any($event.target).value)"
+      placeholder="Nueva tarea..." 
+      style="padding: 8px; flex: 1; border: 1px solid #ccc; border-radius: 4px;"
+    />
+    <!-- 3. Agregamos el ID al botón -->
+    <button 
+      id="add-btn"
+      (click)="createTask()" 
+      style="padding: 8px 16px; cursor: pointer; background: #000; color: white; border: none; border-radius: 4px;"
+    >
+      Agregar
+    </button>
+  </div>
+
+  <ul style="list-style-type: none; padding: 0;">
+    @for (task of tasks(); track task.id) {
+      <!-- 4. Agregamos la clase task-item a los <li> -->
+      <li class="task-item" style="padding: 10px; border-bottom: 1px solid #eee;">
+        <strong>{{ task.title || task.Title }}</strong> 
+        <span style="color: gray; font-size: 0.9em;">({{ task.status || task.Status }})</span>
+      </li>
+    } @empty {
+      <li style="color: gray;">No hay tareas aún.</li>
+    }
+  </ul>
+</main>
