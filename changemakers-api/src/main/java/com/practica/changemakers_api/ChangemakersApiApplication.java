@@ -1,0 +1,13 @@
+package com.practica.changemakers_api;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ChangemakersApiApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ChangemakersApiApplication.class, args);
+	}
+
+}
